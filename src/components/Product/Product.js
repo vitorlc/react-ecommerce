@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core'
 import { AddShoppingCart } from '@material-ui/icons'
 
-function Product({ product }) {
+function Product({ product, handleClick }) {
   return (
     <Card style={{ margin: 10 }}>
       <CardMedia image="" title={product.name} />
@@ -16,7 +16,7 @@ function Product({ product }) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="Adicione ao Carrinho">
+        <IconButton aria-label="Adicione ao Carrinho" onClick={() => handleClick(product)}>
           <AddShoppingCart />
         </IconButton>
       </CardActions>
