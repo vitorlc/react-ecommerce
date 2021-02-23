@@ -1,19 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Grid } from '@material-ui/core'
 import Product from '../Product/Product'
 
-import axios from 'axios'
-
-
-const ProductsList = () => {
-  const [ products, setProducts ] = useState([])
-
-  useEffect (() => {
-    axios.get("https://api-desafio-front.justdigital.com.br/").then(res => {
-      setProducts(res.data.products)
-    }).catch(e => console.log(e))
-  }, [])
-
+const ProductsList = ({products}) => {
   return (
     <main>
       <Grid container justify="center" spacing="{4}">
