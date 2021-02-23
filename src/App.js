@@ -1,13 +1,14 @@
 import React from 'react'
+import { Provider } from 'react-redux';
 
-import { Navbar, ProductsList } from './components'
+import {Store} from './store'
+import Home from './pages/Home'
 
 const App = () => {
   return (
-    <div>
-      <Navbar/>
-      <ProductsList/>
-    </div>
+    <Provider store={Store}>
+      <Home/>
+    </Provider>
   )
 }
 
