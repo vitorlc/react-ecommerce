@@ -25,9 +25,7 @@ const Home = () => {
   return (
     <div>
       <Navbar cartCount={store.products.length}/>
-      <ProductsList products={products} handleClick={handleAddProduct}/>
-      <span>AQUIII {JSON.stringify(store.products)}</span>
-      
+      <ProductsList products={products} handleClick={handleAddProduct}/>      
     </div>
   )
 }
