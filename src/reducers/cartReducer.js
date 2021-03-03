@@ -14,6 +14,8 @@ export const cartReducer = (state = initialState, action) => {
           if (cur.id == action.item.id && cur.count !== 1) {
             cur.count = cur.count - 1
             acc.push(cur)
+          } else if (cur.id !== action.item.id) {
+            acc.push(cur)
           } 
           return acc
         }, [])
