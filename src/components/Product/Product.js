@@ -1,8 +1,10 @@
 import React from 'react'
 import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core'
 import { AddShoppingCart } from '@material-ui/icons'
+import Button from "@material-ui/core/Button"
+import ButtonGroup from "@material-ui/core/ButtonGroup"
 
-function Product({ product, handleClick, isCart }) {
+function Product({ product, handleClick, isCart, handleIncrement, handleDecrement }) {
   return (
     <Card style={{ margin: 10, height: 400 }}>
       <CardMedia image="" title={product.name} />
@@ -15,6 +17,11 @@ function Product({ product, handleClick, isCart }) {
       {
         isCart ? 
           <CardActions disableSpacing style={{ marginTop: 'auto' }}>
+            <ButtonGroup aria-label="small outlined button group">
+              <Button onClick={() => handleIncrement(product)}>+</Button>
+              <Button>{product.count}</Button>
+              <Button onClick={() => handleDecrement(product)}>-</Button>
+            </ButtonGroup>
             <Typography variant="h6">
               R$ {product.price}
             </Typography>
