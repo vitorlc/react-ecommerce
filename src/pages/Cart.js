@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux"
-import { Typography, ButtonBase } from '@material-ui/core'
 
 import { addItemCart, removeItemCart } from "../actions"
-import { ProductsList, Navbar } from '../components'
+import { ProductsList, Navbar, CartFooter } from '../components'
 
 const Cart = () => {
   const store = useSelector(state => state.cartState)
@@ -47,12 +46,7 @@ const Cart = () => {
     <div>
       <Navbar isCart={true} />
       <ProductsList products={cart} isCart={true} handleDecrement={handleDecrement} handleIncrement={handleIncrement}></ProductsList>
-      <div style={{}}>
-        <Typography variant="h6">Total: {`R$ ${cartCost}`}</Typography>
-        <ButtonBase style={{}}>
-          <span style={{}}>Finalizar Compra</span>
-        </ButtonBase>
-      </div>
+      <CartFooter cartCost={cartCost} />
     </div>
   )
 }
