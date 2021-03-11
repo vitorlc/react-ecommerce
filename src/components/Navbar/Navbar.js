@@ -1,21 +1,22 @@
-import React from 'react'
 import { AppBar, Toolbar, IconButton, Badge, Typography } from '@material-ui/core'
 import { ShoppingCart, KeyboardBackspace } from '@material-ui/icons'
 import { useHistory } from 'react-router-dom'
+import useStyles from './styles'
 
 const Navbar = ({ cartCount, isCart }) => {
-  let history = useHistory()
+  const history = useHistory()
+  const classes = useStyles()
   return (
     <>
       <AppBar position="fixed" >
         <Toolbar>
-          <Typography>REACT E-COMMERCE</Typography>
+          <Typography className={classes.title}>REACT E-COMMERCE</Typography>
           {isCart ? 
-            <IconButton onClick={() => history.push("/")} aria-label="Voltar" style={{ position: 'absolute', right: 0 }}>
+            <IconButton onClick={() => history.push("/")} aria-label="Voltar" className={classes.icon}>
               <KeyboardBackspace />
             </IconButton>
             :
-            <IconButton onClick={() => history.push("/carrinho")} aria-label="Carrinho" style={{ position: 'absolute', right: 0 }}>
+            <IconButton onClick={() => history.push("/carrinho")} aria-label="Carrinho" className={classes.icon}>
               <Badge badgeContent={cartCount} color="secondary">
                 <ShoppingCart />
               </Badge>
